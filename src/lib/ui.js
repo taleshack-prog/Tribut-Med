@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     // Número da banca — substituir pelo número real
-    window.open(`https://wa.me/5511999999999?text=${msg}`, '_blank');
+    window.open(`https://wa.me/5551994703553?text=${msg}`, '_blank');
   });
 
   // ─── HERO AMOUNT COUNTER ───
