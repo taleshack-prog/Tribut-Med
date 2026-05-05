@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRIBUT MED — Recupere Seu INSS Pago a Mais</title>
+  <meta name="description" content="Médicos com múltiplos vínculos têm direito à devolução de até R$500.000 em INSS pago acima do teto. Simule agora em 60 segundos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles/main.css" />
+</head>
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="logo">
+        <span class="logo-cross">✚</span>
+        <span class="logo-text">TRIBUT<em>MED</em></span>
+      </div>
+      <div class="nav-links">
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#simulador">Simular</a>
+        <a href="#prova-social">Resultados</a>
+        <a href="#simulador" class="btn-nav">Quero Recuperar</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hex-grid" aria-hidden="true"></div>
+      <div class="glow-orb glow-1"></div>
+      <div class="glow-orb glow-2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="badge-pill animate-in" style="--delay:0s">
+        <span class="badge-dot"></span>
+        Aprovado para médicos com vínculos CLT + PJ
+      </div>
+      <h1 class="hero-title animate-in" style="--delay:.1s">
+        Você pode ter<br/>
+        <em>R$ 500 mil</em><br/>
+        a receber do INSS
+      </h1>
+      <p class="hero-subtitle animate-in" style="--delay:.2s">
+        70% dos médicos com múltiplos empregos pagaram INSS <strong>acima do teto constitucional</strong>. 
+        Esses valores são recuperáveis — com juros SELIC — dos últimos 5 anos.
+      </p>
+      <div class="hero-cta animate-in" style="--delay:.3s">
+        <a href="#simulador" class="btn-primary">
+          <span>Calcular Meu Valor em 60s</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#como-funciona" class="btn-ghost">Ver como funciona</a>
+      </div>
+      <div class="hero-stats animate-in" style="--delay:.4s">
+        <div class="stat">
+          <strong>R$ 48.200</strong>
+          <span>Valor médio recuperado</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <strong>5 anos</strong>
+          <span>Período recuperável</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <strong>Gratuito</strong>
+          <span>Análise sem custo</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual animate-in" style="--delay:.3s">
+      <div class="card-mockup">
+        <div class="card-header">
+          <span class="card-chip"></span>
+          <span class="card-label">ANÁLISE TRIBUTÁRIA</span>
+        </div>
+        <div class="card-amount">
+          <small>Estimativa de recuperação</small>
+          <div class="amount-display" id="hero-amount">R$ 112.480<span class="amount-cents">,00</span></div>
+          <div class="amount-bar">
+            <div class="amount-bar-fill" id="hero-bar"></div>
+          </div>
+        </div>
+        <div class="card-meta">
+          <div class="meta-item">
+            <span class="meta-label">Vínculos</span>
+            <span class="meta-value">CLT + 2× PJ</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-value status-ok">✓ Elegível</span>
+          </div>
+        </div>
+        <div class="card-cta-small">Ver relatório completo →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROBLEMA ═══════════ -->
+  <section class="problema" id="problema">
+    <div class="container">
+      <div class="section-label">O PROBLEMA</div>
+      <h2 class="section-title">Por que médicos pagam INSS a mais?</h2>
+      <div class="problema-grid">
+        <div class="problema-card" data-reveal>
+          <div class="card-icon">⚖️</div>
+          <h3>Teto Constitucional</h3>
+          <p>A Constituição limita o INSS a um teto mensal. Quando você tem vários empregadores, <strong>cada um desconta separadamente</strong>, ultrapassando o limite legal.</p>
+        </div>
+        <div class="problema-card" data-reveal>
+          <div class="card-icon">📋</div>
+          <h3>Múltiplos Vínculos</h3>
+          <p>Médicos com contrato CLT em hospital <em>e</em> prestação PJ têm contribuições somadas acima do permitido pela <strong>EC nº 103/2019</strong>.</p>
+        </div>
+        <div class="problema-card" data-reveal>
+          <div class="card-icon">💰</div>
+          <h3>Dinheiro Recuperável</h3>
+          <p>Toda contribuição excedente ao teto é um valor <strong>indevidamente recolhido</strong>. Você tem direito à devolução integral com correção SELIC.</p>
+        </div>
+      </div>
+      <div class="formula-box" data-reveal>
+        <div class="formula-label">FÓRMULA DE CÁLCULO</div>
+        <div class="formula-math">
+          V<sub>rec</sub> = Σ (C<sub>total,t</sub> − Teto<sub>INSS,t</sub>) × (1 + i<sub>SELIC</sub>)
+        </div>
+        <div class="formula-desc">Soma das contribuições excedentes ao teto nos últimos 60 meses, corrigidas pela taxa SELIC.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ COMO FUNCIONA ═══════════ -->
+  <section class="como-funciona" id="como-funciona">
+    <div class="container">
+      <div class="section-label">PROCESSO</div>
+      <h2 class="section-title">Do cálculo ao depósito em 4 etapas</h2>
+      <div class="steps-track">
+        <div class="step-line"></div>
+        <div class="step" data-reveal>
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Simule em 60 segundos</h3>
+            <p>Informe seus vínculos e rendas brutas mensais. O sistema calcula instantaneamente o potencial de recuperação.</p>
+          </div>
+        </div>
+        <div class="step" data-reveal>
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Análise jurídica gratuita</h3>
+            <p>Nossa IA realiza a triagem inicial via WhatsApp. Validamos CRM, vínculos e documentos básicos automaticamente.</p>
+          </div>
+        </div>
+        <div class="step" data-reveal>
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Ajuizamento da ação</h3>
+            <p>A <strong>Dra. Carolina Burnett Garcia</strong> protocola a ação de repetição de indébito. Nenhum custo antecipado para você.</p>
+          </div>
+        </div>
+        <div class="step" data-reveal>
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Receba o valor</h3>
+            <p>O valor é depositado diretamente na sua conta após o trânsito em julgado. Honorários apenas sobre o êxito.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SIMULADOR ═══════════ -->
+  <section class="simulador" id="simulador">
+    <div class="container">
+      <div class="section-label">SIMULADOR</div>
+      <h2 class="section-title">Calcule seu valor agora</h2>
+      <p class="section-sub">Preencha abaixo. O cálculo é instantâneo e gratuito.</p>
+
+      <div class="sim-wrapper">
+        <div class="sim-form" id="sim-form">
+          <div class="form-group">
+            <label>Número de vínculos empregatícios</label>
+            <div class="vínculo-selector">
+              <button class="vincSelect" data-val="1">1 vínculo</button>
+              <button class="vincSelect active" data-val="2">2 vínculos</button>
+              <button class="vincSelect" data-val="3">3 vínculos</button>
+              <button class="vincSelect" data-val="4">4+ vínculos</button>
+            </div>
+          </div>
+
+          <div id="vinculos-inputs">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Vínculo 1 — Renda bruta mensal</label>
+                <div class="input-currency">
+                  <span>R$</span>
+                  <input type="number" id="v1" placeholder="15.000" min="0" value="15000" />
+                </div>
+                <div class="input-type">
+                  <label><input type="radio" name="t1" value="CLT" checked /> CLT</label>
+                  <label><input type="radio" name="t1" value="PJ" /> PJ / Pessoa Jurídica</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Vínculo 2 — Renda bruta mensal</label>
+                <div class="input-currency">
+                  <span>R$</span>
+                  <input type="number" id="v2" placeholder="20.000" min="0" value="20000" />
+                </div>
+                <div class="input-type">
+                  <label><input type="radio" name="t2" value="CLT" /> CLT</label>
+                  <label><input type="radio" name="t2" value="PJ" checked /> PJ / Pessoa Jurídica</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Período estimado de múltiplos vínculos</label>
+            <div class="slider-wrap">
+              <input type="range" id="periodo" min="12" max="60" value="48" step="6" />
+              <div class="slider-labels">
+                <span>1 ano</span>
+                <span id="periodo-label">48 meses</span>
+                <span>5 anos</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-calcular" id="btn-calcular">
+            <span>Calcular Agora</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <div class="sim-result" id="sim-result">
+          <div class="result-header">
+            <div class="result-badge">✓ Análise Concluída</div>
+            <h3>Estimativa de Recuperação</h3>
+          </div>
+          <div class="result-value" id="result-value">R$ 0,00</div>
+          <div class="result-bar-wrap">
+            <div class="result-bar-fill" id="result-bar"></div>
+          </div>
+          <div class="result-breakdown" id="result-breakdown"></div>
+          <div class="result-alert" id="result-alert"></div>
+          <div class="result-cta" id="result-cta" style="display:none">
+            <p>Para receber seu relatório detalhado, informe seus dados:</p>
+            <div class="form-group">
+              <input type="text" id="nome" placeholder="Seu nome completo" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="tel" id="whatsapp" placeholder="WhatsApp (DDD + número)" />
+              </div>
+              <div class="form-group">
+                <input type="text" id="crm" placeholder="CRM (ex: 123456-SP)" />
+              </div>
+            </div>
+            <button class="btn-whatsapp" id="btn-whatsapp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Receber Análise Completa no WhatsApp
+            </button>
+            <p class="form-disclaimer">🔒 Seus dados são protegidos pela LGPD e usados apenas para contato jurídico.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROVA SOCIAL ═══════════ -->
+  <section class="prova-social" id="prova-social">
+    <div class="container">
+      <div class="section-label">RESULTADOS REAIS</div>
+      <h2 class="section-title">Médicos que já recuperaram</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial" data-reveal>
+          <div class="test-header">
+            <div class="test-avatar">DS</div>
+            <div>
+              <strong>Dr. Diego S.</strong>
+              <span>Cardiologista • São Paulo</span>
+            </div>
+            <div class="test-value">R$ 87.340</div>
+          </div>
+          <p>"Trabalhei 4 anos no InCor e ao mesmo tempo atendia em clínica particular. Nunca imaginei que tinha esse valor a receber. O processo foi completamente digital."</p>
+        </div>
+        <div class="testimonial featured" data-reveal>
+          <div class="test-header">
+            <div class="test-avatar">MR</div>
+            <div>
+              <strong>Dra. Marina R.</strong>
+              <span>Anestesiologista • Rio de Janeiro</span>
+            </div>
+            <div class="test-value">R$ 214.600</div>
+          </div>
+          <p>"Três vínculos simultâneos por 5 anos. O valor foi surpreendente. A equipe da Dra. Carolina identificou todos os períodos elegíveis automaticamente."</p>
+          <div class="featured-badge">Maior recuperação 2025</div>
+        </div>
+        <div class="testimonial" data-reveal>
+          <div class="test-header">
+            <div class="test-avatar">PL</div>
+            <div>
+              <strong>Dr. Paulo L.</strong>
+              <span>Ortopedista • Belo Horizonte</span>
+            </div>
+            <div class="test-value">R$ 52.180</div>
+          </div>
+          <p>"Fiz a simulação com ceticismo. Em 5 minutos o bot já tinha feito a triagem. Em 8 meses o valor caiu na conta. Honorários só no êxito, sem risco."</p>
+        </div>
+      </div>
+      <div class="trust-bar" data-reveal>
+        <div class="trust-item">
+          <strong>+340</strong>
+          <span>Médicos atendidos</span>
+        </div>
+        <div class="trust-item">
+          <strong>R$ 18,4M</strong>
+          <span>Recuperados em 2024/25</span>
+        </div>
+        <div class="trust-item">
+          <strong>100%</strong>
+          <span>Êxito por honorários</span>
+        </div>
+        <div class="trust-item">
+          <strong>OAB/SP</strong>
+          <span>Banca registrada</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FAQ ═══════════ -->
+  <section class="faq" id="faq">
+    <div class="container faq-container">
+      <div class="section-label">DÚVIDAS</div>
+      <h2 class="section-title">Perguntas frequentes</h2>
+      <div class="faq-list">
+        <div class="faq-item" data-reveal>
+          <button class="faq-q">Tenho direito mesmo sendo Pessoa Jurídica?<span>+</span></button>
+          <div class="faq-a">Sim. Quando há vínculo CLT concomitante com prestação PJ, o INSS é recolhido em ambos. O teto constitucional cobre os dois, independente da natureza do vínculo.</div>
+        </div>
+        <div class="faq-item" data-reveal>
+          <button class="faq-q">Qual o prazo prescricional?<span>+</span></button>
+          <div class="faq-a">A ação de repetição de indébito tributário tem prazo de 5 anos contados de cada recolhimento. Por isso é importante agir o quanto antes para não perder os meses mais antigos.</div>
+        </div>
+        <div class="faq-item" data-reveal>
+          <button class="faq-q">Preciso pagar algo antecipado?<span>+</span></button>
+          <div class="faq-a">Não. A atuação da banca é 100% condicionada ao êxito. Os honorários são acordados contratualmente e cobrados apenas após o depósito judicial ou administrativo do valor recuperado.</div>
+        </div>
+        <div class="faq-item" data-reveal>
+          <button class="faq-q">Quanto tempo demora o processo?<span>+</span></button>
+          <div class="faq-a">Em média, ações de repetição de indébito previdenciário levam de 6 a 24 meses. Muitos casos têm resolução administrativa sem necessidade de aguardar sentença judicial.</div>
+        </div>
+        <div class="faq-item" data-reveal>
+          <button class="faq-q">Quais documentos são necessários?<span>+</span></button>
+          <div class="faq-a">Holerites ou extratos de remuneração dos últimos 5 anos, CTPS ou contratos de prestação de serviço, e CNIS (Cadastro Nacional de Informações Sociais) — disponível gratuitamente no Meu INSS.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA FINAL ═══════════ -->
+  <section class="cta-final">
+    <div class="cta-bg">
+      <div class="glow-orb glow-3"></div>
+    </div>
+    <div class="container">
+      <h2 class="cta-title" data-reveal>
+        Não deixe seu<br/><em>dinheiro para trás</em>
+      </h2>
+      <p class="cta-sub" data-reveal>Cada mês que passa é um mês a menos no período recuperável. A simulação é gratuita e leva 60 segundos.</p>
+      <a href="#simulador" class="btn-primary btn-large" data-reveal>
+        <span>Simular Agora — É Grátis</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-cross">✚</span>
+          <span class="logo-text">TRIBUT<em>MED</em></span>
+        </div>
+        <p>Consultoria Jurídica Previdenciária<br/>Dra. Carolina Burnett Garcia — OAB/SP</p>
+      </div>
+      <div class="footer-links">
+        <strong>Legal</strong>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">LGPD</a>
+      </div>
+      <div class="footer-links">
+        <strong>Contato</strong>
+        <a href="https://wa.me/5511999999999">WhatsApp</a>
+        <a href="mailto:contato@tributmed.com.br">E-mail</a>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>As estimativas do simulador são meramente indicativas e não constituem parecer jurídico. Os cálculos definitivos são realizados após análise documental completa. © 2026 Tribut Med Consultoria Jurídica.</p>
+    </div>
+  </footer>
+
+  <script src="src/lib/calc.js"></script>
+  <script src="src/lib/ui.js"></script>
+</body>
+</html>
