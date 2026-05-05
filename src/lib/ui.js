@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── BOTÃO WHATSAPP ───
   const btnWpp = document.getElementById('btn-whatsapp');
-  btnWpp?.addEventListener('click', () => {
+  btnWpp?.addEventListener('click', async () => {
     const nome = document.getElementById('nome')?.value?.trim();
     const wpp = document.getElementById('whatsapp')?.value?.trim();
     const crm = document.getElementById('crm')?.value?.trim();
@@ -187,12 +187,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const valor = resultValue?.textContent || '';
-    const meses = slider?.value || '48';
+    const meses = parseInt(slider?.value || '48');
     const msg = encodeURIComponent(
       `Olá! Me chamo ${nome}.\n\nRealizei a simulação no Tribut Med e minha estimativa de recuperação de INSS foi de *${valor}* (período: ${meses} meses).${crm ? `\n\nMeu CRM: ${crm}` : ''}\n\nGostaria de receber a análise completa.`
     );
 
-    // Número da banca — substituir pelo número real
+    // Salvar lead no backend
+    try {
+      const rendaTotal = vinculos.reduce((s, v) => s + (parseFloat(v.valor) || 0), 0);
+      const valorNum = parseFloat((resultValue?.textContent || '0').replace(/[^0-9,]/g,'').replace(',','.')) || 0;
+      await fetch('https://tribut-med-production.up.railway.app/api/leads/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome, whatsapp: wpp, crm: crm || null, email: null,
+          renda_total: rendaTotal, num_vinculos: numVinculos,
+          periodo_meses: meses, valor_estimado: valorNum
+        })
+      });
+    } catch(e) {
+      console.log('Erro ao salvar lead:', e);
+    }
+
     window.open(`https://wa.me/5551994703553?text=${msg}`, '_blank');
   });
 
